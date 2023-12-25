@@ -6,8 +6,6 @@ layout_page_begin();
 print_manage_menu();
 $link=plugin_page('config');
 $link2=plugin_page('manage_query');
-$q1_table		= plugin_table('definitions','Query');
-$q3_table		= plugin_table('schedule','Query');
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -27,7 +25,7 @@ $q3_table		= plugin_table('schedule','Query');
 
 <form action="<?php echo plugin_page( 'schedule_add' ) ?>" method="post">
 </tr>
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category" colspan="6">
 </td>
 </tr>
@@ -48,7 +46,7 @@ $q3_table		= plugin_table('schedule','Query');
 <td><div align="center"><?php echo lang_get( 'schedule_frequency' ); ?></div></td>
 <td><div align="center"><?php echo lang_get( 'query_act' ); ?></div></td>
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="center">
 <input type="text" name="schedule_desc" size="30" maxlength="100"  >
 </td>
@@ -56,8 +54,8 @@ $q3_table		= plugin_table('schedule','Query');
 <td class="center">
 <select <?php echo helper_get_tab_index() ?> name="query_id">
 <?PHP 
-$sql1 = "select * from $q1_table order by query_name";
-$result1 = db_query_bound($sql1);
+$sql1 = "select * from {plugin_Query_definitions}} order by query_name";
+$result1 = db_query($sql1);
 while ($row1 = db_fetch_array($result1)) {
 	echo '<option value=';
 	echo $row1['query_id'];
@@ -92,8 +90,8 @@ while ($row1 = db_fetch_array($result1)) {
 <form>
 
 <?php
-$sql = "select b.*,query_name from $q1_table as a,$q3_table as b  where  a.query_id=b.query_id order by schedule_desc";
-$result = db_query_bound($sql);
+$sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id order by schedule_desc";
+$result = db_query($sql);
 while ($row = db_fetch_array($result)) {
 	?>
 	<tr>

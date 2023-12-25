@@ -10,15 +10,11 @@ $logfilename = PLUGINPATH.'/logs/';
 $logfilename .= date('Ymd');
 $logfilename .= '_scm_schedule.log';
 
-# what is the table for queries/scripts
-$q1_table		= plugin_table('definitions','Query');
-$q3_table		= plugin_table('schedule','Query');
-
 # which field separator
 $separator = config_get( 'plugin_Query_separator','Query'  );
 
 # load all defined schedules
-$query1 = "select * from $q3_table order by schedule_id";
+$query1 = "select * from {plugin_Query_schedule} order by schedule_id";
 $result1 = db_query($query1);
 while ($row1 = db_fetch_array($result1)) {
     # fetch query definition
@@ -56,7 +52,7 @@ while ($row1 = db_fetch_array($result1)) {
     }
 
     # let's go
-    $query2			= "select * from $q1_table where query_id=$query_id" ;
+    $query2			= "select * from {plugin_Query_definitions} where query_id=$query_id" ;
     $result2		= db_query($query2);
     $row2			= db_fetch_array($result2);
 

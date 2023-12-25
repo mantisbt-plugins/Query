@@ -27,7 +27,7 @@ $link2=plugin_page('manage_schedule');
 <form action="<?php echo plugin_page( 'query_add' ) ?>" method="post">
 
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category" colspan="5">
 </td>
 </tr>
@@ -47,7 +47,7 @@ $link2=plugin_page('manage_schedule');
 <td><div align="center"><?php echo lang_get( 'query_desc' ); ?></div></td>
 <td><div align="center"><?php echo lang_get( 'query_act' ); ?></div></td>
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="center">
 <input type="text" name="query_name" size="40" maxlength="100"  >
 </td>
@@ -77,9 +77,8 @@ $link2=plugin_page('manage_schedule');
 </form>
 
 <?php
-$q1_table		= plugin_table('definitions','Query');
-$sql = "select query_id,query_name,query_desc,query_type,query_lvl from $q1_table order by query_name";
-$result = db_query_bound($sql);
+$sql = "select query_id,query_name,query_desc,query_type,query_lvl from {plugin_Query_definitions} order by query_name";
+$result = db_query($sql);
 while ($row = db_fetch_array($result)) {
 	?>
 	<tr>

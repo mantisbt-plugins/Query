@@ -25,8 +25,7 @@ $link2=plugin_page('manage_schedule');
 <table class="table table-bordered table-condensed table-striped"> 
 <form action="<?php echo plugin_page( 'config_edit' ) ?>" method="post">
 
-
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category" colspan="4">
 </td>
 </tr>
@@ -40,13 +39,12 @@ $link2=plugin_page('manage_schedule');
 </td>
 </tr>
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category" colspan="4">
 </td>
 </tr>
 
-
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category">
 <?php echo lang_get( 'query_manage_threshold' ) ?>
 </td>
@@ -57,7 +55,7 @@ $link2=plugin_page('manage_schedule');
 </td>
 </tr>
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category">
 <?php echo lang_get( 'query_execute_threshold' ) ?>
 </td>
@@ -68,7 +66,7 @@ $link2=plugin_page('manage_schedule');
 </td>
 </tr>
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr ?>
 <td class="category">
 <?php echo lang_get( 'query_download_location' ) ?>
 </td>
@@ -77,7 +75,7 @@ $link2=plugin_page('manage_schedule');
 </td>
 </tr>
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category">
 <?php echo lang_get( 'query_separator' ) ?>
 </td>
@@ -86,8 +84,7 @@ $link2=plugin_page('manage_schedule');
 </td>
 </tr>
 
-
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category">
 <?php echo lang_get( 'query_from_address' ) ?>
 </td>
@@ -96,7 +93,7 @@ $link2=plugin_page('manage_schedule');
 </td>
 </tr>
 
-<tr <?php echo helper_alternate_class( )?>>
+<tr >
 <td class="category" width="60%">
 <?php echo lang_get( 'query_delete_file' )?>
 </td>
@@ -108,8 +105,6 @@ $link2=plugin_page('manage_schedule');
 <?php echo lang_get( 'query_disabled' )?></label>
 </td>
 </tr> 
-
-
 
 <tr>
 <td class="center" colspan="3">

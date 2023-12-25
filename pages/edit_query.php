@@ -3,14 +3,8 @@ require_once( '../../../core.php' );
 $update_id			=  $_REQUEST['update_id'];
 auth_reauthenticate();
 access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
-//layout_page_header( lang_get( 'plugin_format_title' ) );
-//layout_page_begin();
-//print_manage_menu();
-
-
 $basepad=config_get('path');
-$q1_table =  plugin_table('definitions','Query');
-$sql = "select * from $q1_table where query_id=$update_id";
+$sql = "select * from {plugin_Query_definitions} where query_id=$update_id";
 $result = db_query($sql);
 $row = db_fetch_array($result);
 $type = $row['query_type'];

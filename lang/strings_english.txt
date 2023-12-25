@@ -42,6 +42,12 @@
 	$s_query_separator				= "Field Separator";
 	$s_query_lvl					= "User / Admin";
 
+define('ERROR_DELETE_QUERY', "ERROR_DELETE_QUERY"); 
+define('ERROR_QUERY_EMPTY_TITLE', "ERROR_QUERY_EMPTY_TITLE"); 
+define('ERROR_QUERY_EMPTY_DESC', "ERROR_QUERY_EMPTY_DESC"); 
+define('ERROR_SCHEDULE_EMPTY_TITLE', "ERROR_SCHEDULE_EMPTY_TITLE"); 
+define('ERROR_SCHEDULE_EMPTY_TARGET', "ERROR_SCHEDULE_EMPTY_TARGET"); 
+define('ERROR_SCHEDULE_EMPTY_QUERY', "ERROR_SCHEDULE_EMPTY_QUERY"); 
 
 	$MANTIS_ERROR['ERROR_DELETE_QUERY'] = 'Query is scheduled, cannot be deleted.';
 	$MANTIS_ERROR['ERROR_QUERY_EMPTY_TITLE'] = 'Query must have a name.';

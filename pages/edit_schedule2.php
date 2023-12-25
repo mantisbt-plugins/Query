@@ -7,7 +7,7 @@ $target	= db_prepare_string(htmlentities($_REQUEST['schedule_target'],ENT_COMPAT
 
 # Updating schedule
 $q3_table =  plugin_table('schedule','Query');
-$query = "update $q3_table set schedule_filter='$filter',target='$target' where schedule_id=$update_id ";
+$query = "update {plugin_Query_schedule} set schedule_filter='$filter',target='$target' where schedule_id=$update_id ";
 if(!db_query($query)){ 
 	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
 }		

@@ -2,19 +2,15 @@
 error_reporting(-1); //turn on errorreporting
 
 require_once( '../../../core.php' );
-//ini_set('include_path', ini_get('include_path') . ';G:\Classes\\');
 
 # which query will we execute ?
 $query_id	= $_REQUEST['id'];
 
 # which query will we execute ?
-$filter		= $_REQUEST['project_id'];
-
-# what is the table for queries/scripts
-$q1_table		= plugin_table('definitions','Query');
+$filter		= @$_REQUEST['project_id'];
 
 # fetch query definition
-$query="select * from $q1_table where query_id=$query_id" ;
+$query="select * from {plugin_Query_definitions} where query_id=$query_id" ;
 $result = db_query($query);
 $row = db_fetch_array( $result );
 

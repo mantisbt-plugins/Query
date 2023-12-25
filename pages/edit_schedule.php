@@ -4,10 +4,9 @@ $form_vars	= $$reqVar;
 $update_id	= $form_vars['update_id'] ;
 require_once( '../../../core.php' );
 $basepad=config_get('path');
-$q1_table =  plugin_table('definitions','Query');
-$q3_table =  plugin_table('schedule','Query');
-$sql = "select b.*,query_name from $q1_table as a,$q3_table as b  where  a.query_id=b.query_id and schedule_id=$update_id "; 
-$result = db_query_bound($sql);
+
+$sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id and schedule_id=$update_id "; 
+$result = db_query($sql);
 $row = db_fetch_array($result);
 ?>
 <form name="editschedule" method="post" action="edit_schedule2.php">

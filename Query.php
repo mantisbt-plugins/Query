@@ -6,11 +6,11 @@ class QueryPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = lang_get( 'plugin_query_name' );
 		$this->description = lang_get( 'plugin_query_description' );
-		$this->version     = '2.10';
+		$this->version     = '2.11';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
-		$this->url         = 'https://github.com/mantisbt-plugins/Query';
+		$this->url         = 'http://www.nuy.info';
 		$this->page			= 'config';
 	}
 
@@ -21,7 +21,7 @@ class QueryPlugin extends MantisPlugin {
 			'download_location' => 'c:/temp/' ,
 			'separator'			=> ',',
 			'delete_file'		=> ON,
-			'from_address_location' => 'me@mydomain.com' ,
+			'from_address' 		=> 'me@mydomain.com' ,
 			);
 	}
 

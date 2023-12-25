@@ -16,8 +16,7 @@ if ($query_id<1) {
 	trigger_error( ERROR_SCHEDULE_EMPTY_QUERY, ERROR );
 }
 
-$q3_table		= plugin_table('schedule','Query');
-$sql = "INSERT INTO $q3_table ( schedule_desc,query_id, schedule_filter, target, frequency ) 	VALUES (  '$schedule','$query_id', '$filter','$target','$frequency')";
+$sql = "INSERT INTO {plugin_Query_schedule} ( schedule_desc,query_id, schedule_filter, target, frequency ) 	VALUES (  '$schedule','$query_id', '$filter','$target','$frequency')";
 
 if(!db_query($sql)){ 
 	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );

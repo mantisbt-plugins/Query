@@ -17,13 +17,13 @@ layout_page_begin( );
 <div class="widget-main no-padding">
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped"> 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category" colspan="4">
 </td>
 </tr>
 
 
-<tr <?php echo helper_alternate_class() ?>>
+<tr >
 <td class="category" colspan="4">
 </td>
 </tr>
@@ -42,8 +42,7 @@ layout_page_begin( );
 
 
 <?php
-$q1_table		= plugin_table('definitions','Query');
-$sql = "select query_id,query_name,query_desc,query_type from $q1_table where query_type='Q' and query_lvl='U' order by query_name ";
+$sql = "select query_id,query_name,query_desc,query_type from {plugin_Query_definitions} where query_type='Q' and query_lvl='U' order by query_name ";
 $result = db_query($sql);
 while ($row = db_fetch_array($result)) {
 	?>
