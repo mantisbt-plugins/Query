@@ -17,4 +17,4 @@ plugin_config_set( 'delete_file', $f_delete_file );
 plugin_config_set( 'from_address', $f_from_address );
 plugin_config_set( 'separator', $f_separator );
 // redirect 
-print_successful_redirect( plugin_page( 'config',TRUE ) );
+print_header_redirect( plugin_page( 'config',TRUE ) );
