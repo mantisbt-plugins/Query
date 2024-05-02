@@ -54,7 +54,7 @@ $link2=plugin_page('manage_query');
 <td class="center">
 <select <?php echo helper_get_tab_index() ?> name="query_id">
 <?PHP 
-$sql1 = "select * from {plugin_Query_definitions}} order by query_name";
+$sql1 = "select * from {plugin_Query_definitions} order by query_name";
 $result1 = db_query($sql1);
 while ($row1 = db_fetch_array($result1)) {
 	echo '<option value=';
