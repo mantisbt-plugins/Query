@@ -2,7 +2,7 @@
 $reqVar		= '_' . $_SERVER['REQUEST_METHOD'];
 $form_vars	= $$reqVar;
 $update_id	= $form_vars['update_id'] ;
-require_once( '../../../core.php' );
+//require_once( '../../../core.php' );
 $basepad=config_get('path');
 
 $sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id and schedule_id=$update_id "; 
@@ -30,6 +30,6 @@ $row = db_fetch_array($result);
 	
 <center>
 <td><input name="Update" type="submit" value="Update"></td>
-<td><a href="../../../plugin.php?page=Query/manage_schedule">Cancel<a/></td>
+<td><a href="plugin.php?page=Query/manage_schedule">Cancel<a/></td>
 </tr>
 </form>

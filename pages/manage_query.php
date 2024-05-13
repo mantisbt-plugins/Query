@@ -87,10 +87,9 @@ while ($row = db_fetch_array($result)) {
 	<td><div align="center"><?php echo $row["query_lvl"]; ?></div></td>
 	<td><div align="left"><?PHP	echo html_entity_decode($row["query_desc"]);?>	</div></td>
 	<td><div>
-	<a href="plugins/Query/pages/edit_query.php?update_id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_edit' ) ?></a>
-	<a href="plugins/Query/pages/query_delete.php?delete_id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_delete' ) ?></a>
-	<a href="plugins/Query/pages/exec_query.php?id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_execute' ) ?></a>
-
+	<a href="plugin.php?page=Query/edit_query.php&update_id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_edit' ) ?></a>
+	<a href="plugin.php?page=Query/query_delete.php&delete_id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_delete' ) ?></a>
+	<a href="plugin.php?page=Query/exec_query.php&id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_execute' ) ?></a>
 
 
 	</div></td>
@@ -106,4 +105,4 @@ while ($row = db_fetch_array($result)) {
 </div>
 </div>
 <?php
-	layout_page_end();
+layout_page_end();

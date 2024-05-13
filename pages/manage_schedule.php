@@ -54,7 +54,7 @@ $link2=plugin_page('manage_query');
 <td class="center">
 <select <?php echo helper_get_tab_index() ?> name="query_id">
 <?PHP 
-$sql1 = "select * from {plugin_Query_definitions}} order by query_name";
+$sql1 = "select * from {plugin_Query_definitions} order by query_name";
 $result1 = db_query($sql1);
 while ($row1 = db_fetch_array($result1)) {
 	echo '<option value=';
@@ -101,8 +101,8 @@ while ($row = db_fetch_array($result)) {
 	<td><div align="center"><?PHP	echo html_entity_decode($row["target"]);?>	</div></td>
 	<td><div align="center"><?php echo $row["frequency"]; ?></div></td>
 	<td><div>
-	<a href="plugins/Query/pages/edit_schedule.php?update_id=<?php echo $row["schedule_id"]; ?>"><?php echo lang_get( 'query_edit' ) ?></a>
-	<a href="plugins/Query/pages/schedule_delete.php?delete_id=<?php echo $row["schedule_id"]; ?>"><?php echo lang_get( 'query_delete' ) ?></a>
+	<a href="plugin.php?page=Query/edit_schedule.php&update_id=<?php echo $row["schedule_id"]; ?>"><?php echo lang_get( 'query_edit' ) ?></a>
+	<a href="plugin.php?page=Query/schedule_delete.php&delete_id=<?php echo $row["schedule_id"]; ?>"><?php echo lang_get( 'query_delete' ) ?></a>
 	</div></td>
 	</tr>
 	<?PHP

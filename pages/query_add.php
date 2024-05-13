@@ -1,5 +1,5 @@
 <?PHP
-require_once( 'core.php' );
+//require_once( 'core.php' );
 $query	= $_REQUEST['query_name'];
 $type	= $_REQUEST['query_type'];
 $lvl	= $_REQUEST['query_lvl'];

@@ -1,5 +1,5 @@
 <?PHP
-require_once( '../../../core.php' );
+//require_once( '../../../core.php' );
 $update_id			=  $_REQUEST['update_id'];
 auth_reauthenticate();
 access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
@@ -26,7 +26,7 @@ $type = $row['query_type'];
 <div class="widget-main no-padding">
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped"> 
-<form name="editquery" method="post" action="edit_query2.php">
+<form name="editquery" method="post" action="plugin.php?page=Query/edit_query2.php">
 <input type="hidden" name="update_id" value="<?php echo $update_id;  ?>">
 
 <strong><?php echo lang_get( 'query_update_comments' ) ?>: </strong>
@@ -70,7 +70,7 @@ if ($type<>"Q"){
 ?>
 <tr>
 <td><input name="Update" type="submit" value="Update"></td>
-<td><a href="../../../plugin.php?page=Query/manage_query">Cancel<a/></td>
+<td><a href="plugin.php?page=Query/manage_query">Cancel<a/></td>
 </tr></center>
 </table></form>
 </div>

@@ -1,7 +1,7 @@
 ########################################################
 # 	Mantis Bugtracker Add-On
-# 	Query Version 2.12
-#	2012 - 2024 plugin by Cas Nuy www.NUY.info
+# 	Query Version 2.11
+#	2012 - 2022 plugin by Cas Nuy www.NUY.info
 ########################################################
 
 Query plugin
@@ -52,3 +52,18 @@ Finally one job needs to be scheduled on your server to run daily, shortly after
 This needs to be set up by your admin using either CRON or Windows Scheduled tasks.
 In order to run in batch mode, one needs to schedule the following job:
 1. exec_schedule.php (http://localhost/m1210/plugins/Query/pages/exec_schedule.php)
+
+
+When using php 8.2 a change is required to vendor/adodb/adodb-php/drivers/adodb-mysqli.inc.php
+
+Find the following lines
+/*--------------------------------------------------------------------------------------
+	 Class Name: Recordset
+--------------------------------------------------------------------------------------*/
+class ADORecordSet_mysqli extends ADORecordSet{
+and make it look like this:
+/*--------------------------------------------------------------------------------------
+	 Class Name: Recordset
+--------------------------------------------------------------------------------------*/
+#[AllowDynamicProperties]
+class ADORecordSet_mysqli extends ADORecordSet{

@@ -1,5 +1,5 @@
 <?PHP
-require_once( '../../../core.php' );
+//require_once( '../../../core.php' );
 $update_id	= gpc_get_int( 'update_id' );
 $script		=  @$_REQUEST['query_script'] ;
 $tables		=  @$_REQUEST['query_tables'];
@@ -54,4 +54,4 @@ if ($type <>'Q'){
 if(!db_query($query)){ 
 	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
 }
-print_header_redirect( '../../../plugin.php?page=Query/manage_query' );
+print_header_redirect( 'plugin.php?page=Query/manage_query' );

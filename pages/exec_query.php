@@ -1,8 +1,6 @@
 <?PHP
 error_reporting(-1); //turn on errorreporting
 
-require_once( '../../../core.php' );
-
 # which query will we execute ?
 $query_id	= $_REQUEST['id'];
 
@@ -11,6 +9,7 @@ $filter		= @$_REQUEST['project_id'];
 
 # fetch query definition
 $query="select * from {plugin_Query_definitions} where query_id=$query_id" ;
+
 $result = db_query($query);
 $row = db_fetch_array( $result );
 
