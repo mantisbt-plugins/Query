@@ -2,8 +2,8 @@
 //require_once( '../../../core.php' );
 $update_id			= gpc_get_int( 'update_id' );
 
-$filter	= db_prepare_string(htmlentities($_REQUEST['schedule_filter'],ENT_COMPAT,'UTF-8'));
-$target	= db_prepare_string(htmlentities($_REQUEST['schedule_target'],ENT_COMPAT,'UTF-8'));
+$filter	= htmlentities($_REQUEST['schedule_filter'],ENT_COMPAT,'UTF-8');
+$target	= htmlentities($_REQUEST['schedule_target'],ENT_COMPAT,'UTF-8'));
 
 # Updating schedule
 $q3_table =  plugin_table('schedule','Query');

@@ -3,7 +3,7 @@
 $query	= $_REQUEST['query_name'];
 $type	= $_REQUEST['query_type'];
 $lvl	= $_REQUEST['query_lvl'];
-$desc	= db_prepare_string($_REQUEST['query_desc']);
+$desc	= $_REQUEST['query_desc'];
 if (empty($query)) {
 	trigger_error( ERROR_QUERY_EMPTY_TITLE, ERROR );
 }
