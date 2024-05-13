@@ -3,9 +3,9 @@ require_once( 'core.php' );
 //require_once( '../../../core.php' );
 $schedule	= $_REQUEST['schedule_desc'];
 $query_id	= $_REQUEST['query_id'];
-$filter		= db_prepare_string($_REQUEST['schedule_filter']);
-$target		= db_prepare_string($_REQUEST['schedule_target']);
-$frequency	= db_prepare_string($_REQUEST['schedule_type']);
+$filter		= $_REQUEST['schedule_filter'];
+$target		= $_REQUEST['schedule_target'];
+$frequency	= $_REQUEST['schedule_type'];
 if (empty($schedule)) {
 	trigger_error( ERROR_SCHEDULE_EMPTY_TITLE, ERROR );
 }

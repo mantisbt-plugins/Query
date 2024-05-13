@@ -1,7 +1,7 @@
 ########################################################
 # 	Mantis Bugtracker Add-On
-# 	Query Version 2.11
-#	2012 - 2022 plugin by Cas Nuy www.NUY.info
+# 	Query Version 2.13
+#	2012 - 2024 plugin by Cas Nuy www.NUY.info
 ########################################################
 
 Query plugin
