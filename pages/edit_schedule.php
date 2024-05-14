@@ -39,7 +39,12 @@ $row = db_fetch_array($result);
 <td width = "50%">	
 <br><?php echo lang_get( 'query_tip_8' ) ?></td>
 <td><b><?php echo lang_get( 'schedule_filter' ) ?></b><br>
-<textarea name="schedule_filter" rows="3" cols="50"><?php echo $row['schedule_filter'];  ?></textarea>
+<?php if ( ON == plugin_config_get( 'build_sql' ) ) { ?>
+	<textarea name="schedule_filter" rows="3" cols="50"><?php echo $row['schedule_filter'];  ?></textarea>
+<?php
+ } else {
+	echo lang_get( 'no_schedule_filter' );
+ }	 ?>
 </div>
 </td>
 </tr>

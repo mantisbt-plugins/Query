@@ -32,6 +32,8 @@ $s_query_sql					= 'Resulting SQL Statement';
 $s_schedule_desc				= 'Schedule description';
 $s_schedule_target				= 'Recipients (separated by comma)';
 $s_schedule_filter				= 'Additional filter';
+$s_no_schedule_filter			= 'This is not available since you configured the plugin for complete SQL statements';
+$s_log_loc						= 'Location of the logfiles (used during scheduled tasks).';
 $s_query_title2					= 'Query Name';
 $s_schedule_update_comments		= 'Update Schedule';
 $s_query_from_address			= 'From Address';
@@ -41,7 +43,8 @@ $s_plugin_user_query			= "Query";
 $s_plugin_query_execute			= "Execution";
 $s_query_separator				= "Field Separator";
 $s_query_lvl					= "User / Admin";
-	
+$s_query_sql					= "SQL statement";
+$s_build_sql					= "Build the sql statement in steps	( or just write the whole statement) ";
 $s_query_tip_1					= "You can list the tables with fully qualified name but also with the abbreviated version (replace prefix with '{' and suffix with '}' like mantis _bug_table_becomes {bug}. For the nexty step you can give them aliasses like {bug} b. this way you can relate to the table as 'b'";
 $s_query_tip_2					= "Make sure all the tables are related  in the correct way. If a field exists in mutiple tables, you need to use them fully qualified";
 $s_query_tip_3					= "List the fields you want to have in your output. If a field exists in mutiple tables, you need to use them fully qualified. You may use an asterisk";
@@ -49,8 +52,9 @@ $s_query_tip_4					= "Add possible filters you want use here. If a field exists 
 $s_query_tip_5					= "In case you want a specific order, you can set that here. If a field exists in mutiple tables, you need to use them fully qualified";
 $s_query_tip_6					= "Option to group your output. If a field exists in mutiple tables, you need to use them fully qualified";
 $s_query_tip_7					= "Provide the script to be executed. make sure that contains no errors since the code is simply evaluated and only executed if no errors are found.";
-$s_query_tip_8					= "You can define  an  additional filter if you have that within your script (for example project_id. make sure that you use the correct fieldname(s) for this. If a field exists in mutiple tables, you need to use them fully qualified";
+$s_query_tip_8					= "You can define  an  additional filter if you have that within your script (for example project_id. make sure that you use the correct fieldname(s) for this. If a field exists in mutiple tables, you need to use them fully qualified ";
 $s_query_tip_9					= "Provide the recipients of this query. You can add multiple e-mail adresses seprated by a comma.";
+$s_query_tip_10					= "Simply copy and paste the query in full (after testing it in a tool like phpmyadmin). NB, you cannot use additional filters while scheduling";
 
 
 define('ERROR_DELETE_QUERY', "ERROR_DELETE_QUERY"); 
@@ -59,10 +63,11 @@ define('ERROR_QUERY_EMPTY_DESC', "ERROR_QUERY_EMPTY_DESC");
 define('ERROR_SCHEDULE_EMPTY_TITLE', "ERROR_SCHEDULE_EMPTY_TITLE"); 
 define('ERROR_SCHEDULE_EMPTY_TARGET', "ERROR_SCHEDULE_EMPTY_TARGET"); 
 define('ERROR_SCHEDULE_EMPTY_QUERY', "ERROR_SCHEDULE_EMPTY_QUERY"); 
+define('ERROR_QUERY_NAME_NOT_UNIQUE',"ERROR_QUERY_NAME_NOT_UNIQUE");
 
-	$MANTIS_ERROR['ERROR_DELETE_QUERY'] = 'Query is scheduled, cannot be deleted.';
-	$MANTIS_ERROR['ERROR_QUERY_EMPTY_TITLE'] = 'Query must have a name.';
-	$MANTIS_ERROR['ERROR_QUERY_EMPTY_DESC'] = 'Query must have a proper description.';
-	$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_TITLE'] = 'Schedule must have a name.';
-	$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_TARGET'] = 'Schedule must have recipient(s).';
-	$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_QUERY'] = 'Schedule must have a query connected.';
+$MANTIS_ERROR['ERROR_DELETE_QUERY'] = 'Query is scheduled, cannot be deleted.';
+$MANTIS_ERROR['ERROR_QUERY_EMPTY_TITLE'] = 'Query must have a name.';
+$MANTIS_ERROR['ERROR_QUERY_EMPTY_DESC'] = 'Query must have a proper description.';
+$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_TITLE'] = 'Schedule must have a name.';
+$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_TARGET'] = 'Schedule must have recipient(s).';
+$MANTIS_ERROR['ERROR_QUERY_NAME_NOT_UNIQUE'] = 'Query name is not unique, please adjust.';

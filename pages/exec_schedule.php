@@ -6,7 +6,7 @@ require_once( '../../../core.php' );
 # 
 
 #logfile
-$logfilename = PLUGINPATH.'/logs/';
+$logfilename = plugin_config_get( 'log_loc');
 $logfilename .= date('Ymd');
 $logfilename .= '_query_schedule.log';
 
@@ -23,7 +23,7 @@ while ($row1 = db_fetch_array($result1)) {
     $target			= $row1['target'];
     $freq			= $row1['frequency'];
     $schedule_name  = $row1['schedule_desc'];
-
+    $schedule_filter= $row1['schedule_filter'];
     $starttime = date('Y-m-d H:i:s');
 
     # should we run this schedule today ?
@@ -59,7 +59,7 @@ while ($row1 = db_fetch_array($result1)) {
     # if we have an additional filter, rebuild query string (only for type Query)
     if ($row2['query_type'] == 'Q'){
 
-        if (!empty($row1['schedule_filter'])){
+        if ( (!empty( $schedule_filter) ) and ( ON == plugin_config_get( 'build_sql' ) ) ) { 
             $sql = 'select ';
             $sql .= $row2['query_fields'];
             $sql .= ' from ';

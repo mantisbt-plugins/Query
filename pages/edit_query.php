@@ -9,6 +9,7 @@ $sql = "select * from {plugin_Query_definitions} where query_id=$update_id";
 $result = db_query($sql);
 $row = db_fetch_array($result);
 $type = $row['query_type'];
+$lvl = $row['query_lvl'];
 ?>
 <center>
 <div class="col-md-12 col-xs-12">
@@ -28,10 +29,40 @@ $type = $row['query_type'];
 <form name="editquery" method="post" action="plugin.php?page=Query/edit_query2.php">
 <input type="hidden" name="update_id" value="<?php echo $update_id;  ?>">
 <strong><?php echo lang_get( 'query_update_comments' ) ?>: </strong>
-<?php echo $row['query_name'];?>
-<br>
-<?php echo $row['query_desc'];?>
-<br>
+
+<tr>
+<td><div ><?php echo lang_get( 'query_title' ); ?></div></td>
+<td >
+<input type="text" name="query_name" size="40" maxlength="100" value="<?php echo $row['query_name'];?>" >
+</td>
+</tr>
+<tr>
+<td><div ><?php echo lang_get( 'query_desc' ); ?></div></td>
+<td >
+<textarea name="query_desc" rows="3" cols="50" ><?php echo $row['query_desc'];?></textarea>
+</td>
+</tr>
+<tr>
+<td><div ><?php echo lang_get( 'query_lvl' ); ?></div></td>
+<td >
+<select <?php echo helper_get_tab_index() ?> name="query_lvl">
+<?php
+if ( $lvl == "U" ) {
+	$lvlu= 'selected="selected"';
+} else {
+	$lvlu = '';
+}
+if ( $lvl == "A" ) {
+	$lvla= 'selected="selected"';
+} else {
+	$lvla = '';
+}
+?>
+<option value="U" <?php echo $lvlu ?> >User</option> 
+<option value="A" <?php echo $lvla ?> >Admin only</option> 
+</select>
+</td>
+</tr>
 <?PHP
 if ($type<>"Q"){
 	?>
@@ -46,7 +77,8 @@ if ($type<>"Q"){
 	</td>
 	</tr>
 	<?PHP
-} else{
+} else {
+	if ( ON == plugin_config_get('build_sql' ) ) {
 	?>
 	<tr>
 	<td width="50%">
@@ -97,6 +129,20 @@ if ($type<>"Q"){
 	<textarea name="query_group" rows="3" cols="50"><?php echo $row['query_group'];  ?></textarea>
 	</div></td></tr>
 	<?PHP
+	} else {
+		?>
+		<tr>
+		<td width="50%">
+		<br>
+		<?php echo lang_get( 'query_tip_10' ) ?>
+		</td>
+		<td><div ><b><?php echo lang_get( 'query_sql' ) ?></b><br>
+		<textarea name="query_sql" rows="20" cols="75"><?php echo $row['query_sql'];  ?></textarea>
+		</div>
+		</td>
+		</tr>
+		<?PHP
+	}
 }
 ?>
 <tr>

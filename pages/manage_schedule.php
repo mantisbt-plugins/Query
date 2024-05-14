@@ -67,7 +67,12 @@ while ($row1 = db_fetch_array($result1)) {
 </select> 
 </td>
 <td class="center">
-<textarea name="schedule_filter" rows="3" cols="30"></textarea>
+<?php if ( ON == plugin_config_get( 'build_sql' ) ) { ?>
+	<textarea name="schedule_filter" rows="3" cols="30"></textarea>
+<?php
+} else {
+	echo lang_get( 'no_schedule_filter' );
+ }	 ?>
 </td>
 <td class="center">
 <textarea name="schedule_target" rows="3" cols="30"></textarea>

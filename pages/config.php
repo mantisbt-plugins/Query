@@ -94,6 +94,16 @@ $link2=plugin_page('manage_schedule');
 </tr>
 
 <tr >
+<td class="category">
+<?php echo lang_get( 'log_loc' ) ?>
+</td>
+<td class="category">
+<input type="text" name="log_loc" size="50" maxlength="75" value="<?php echo plugin_config_get( 'log_loc' )?>" >
+</td>
+</tr>
+
+
+<tr >
 <td class="category" width="60%">
 <?php echo lang_get( 'query_delete_file' )?>
 </td>
@@ -102,6 +112,19 @@ $link2=plugin_page('manage_schedule');
 <?php echo lang_get( 'query_enabled' )?></label>
 
 <label><input type="radio" name='delete_file' value="0" <?php echo( OFF == plugin_config_get( 'delete_file' ) )? 'checked="checked" ' : ''?>/>
+<?php echo lang_get( 'query_disabled' )?></label>
+</td>
+</tr> 
+
+<tr >
+<td class="category" width="60%">
+<?php echo lang_get( 'build_sql' )?>
+</td>
+<td class="category" width="20%">
+<label><input type="radio" name='build_sql' value="1" <?php echo( ON == plugin_config_get( 'build_sql' ) ) ? 'checked="checked" ' : ''?>/>
+<?php echo lang_get( 'query_enabled' )?></label>
+
+<label><input type="radio" name='build_sql' value="0" <?php echo( OFF == plugin_config_get( 'build_sql' ) )? 'checked="checked" ' : ''?>/>
 <?php echo lang_get( 'query_disabled' )?></label>
 </td>
 </tr> 

@@ -1,12 +1,10 @@
 <?php
-define("PLUGINPATH", getcwd());
-
 class QueryPlugin extends MantisPlugin {
 
 	function register() {
 		$this->name        = lang_get( 'plugin_query_name' );
 		$this->description = lang_get( 'plugin_query_description' );
-		$this->version     = '2.14';
+		$this->version     = '2.15';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -21,7 +19,9 @@ class QueryPlugin extends MantisPlugin {
 			'download_location' => 'c:/temp/' ,
 			'separator'			=> ',',
 			'delete_file'		=> ON,
+			'build_sql'			=> ON,
 			'from_address' 		=> 'me@mydomain.com' ,
+			'log_loc' 			=> '/var/log/' ,
 			);
 	}
 
@@ -37,12 +37,11 @@ class QueryPlugin extends MantisPlugin {
 
  	function query_menu_user() {
 		if ( access_has_project_level( plugin_config_get( 'execute_threshold' ) )  ){
-			//		return array( '<a href="' . plugin_page( 'user_query' ) . '">' . lang_get( 'plugin_user_query' ) .  '</a>', );
 			$links = array();
-			$links[] = array('title' => lang_get("plugin_user_query","Query"),'url' => plugin_page("user_query", true),'icon' => 'fa-user-secret');
+			$links[] = array('title' => lang_get("plugin_user_query","Query"),
+			'url' => plugin_page("user_query", true),
+			'icon' => 'fa-user-secret');
 			return $links;
-		} else {
-			return;
 		}
 	}
 

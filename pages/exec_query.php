@@ -25,7 +25,7 @@ $separator = config_get( 'plugin_Query_separator','Query'  );
 switch($action){
 	case "Q":
 		# 'Q' means execute query, copy results into $content
-		if (!empty($filter)){
+		if ( (!empty( $filter) ) and ( ON == plugin_config_get( 'build_sql' ) ) ) { 
 			$sql = 'select ';
 			$sql .= $row['query_fields'];
 			$sql .= ' from ';
@@ -105,7 +105,7 @@ switch($action){
 					$content .= "$separator" ;
 				}
 				$name = $fieldar[$i];
-				$content .= $row2[trim($name)] ;
+				$content .= strtolower( $row2[trim( $name )] ) ;
 			}
 			$content .= "\r\n";
 		}
