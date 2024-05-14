@@ -72,7 +72,17 @@ class QueryPlugin extends MantisPlugin {
 						target				XL		NOTNULL DEFAULT \" '' \" ,
 						frequency			C(1)    NOTNULL DEFAULT \" '' \"
 						" ) ),
-
+			# Make columns nullable
+			array( 'AlterColumnSQL', array( plugin_table( 'definitions' ), "
+						query_script		XL		DEFAULT \" '' \" ,
+						query_tables		XL		DEFAULT \" '' \" ,
+						query_joins			XL		DEFAULT \" '' \" ,
+						query_fields		XL		DEFAULT \" '' \" ,
+						query_filter		XL		DEFAULT \" '' \" ,
+						query_order			XL		DEFAULT \" '' \" ,
+						query_group			XL		DEFAULT \" '' \" ,
+						query_sql			XL		DEFAULT \" '' \" 
+						" ) ),
 				);
 	}
 
