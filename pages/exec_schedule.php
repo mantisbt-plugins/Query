@@ -8,7 +8,7 @@ require_once( '../../../core.php' );
 #logfile
 $logfilename = PLUGINPATH.'/logs/';
 $logfilename .= date('Ymd');
-$logfilename .= '_scm_schedule.log';
+$logfilename .= '_query_schedule.log';
 
 # which field separator
 $separator = config_get( 'plugin_Query_separator','Query'  );

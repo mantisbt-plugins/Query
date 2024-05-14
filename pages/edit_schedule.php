@@ -1,14 +1,30 @@
 <?PHP
 $reqVar		= '_' . $_SERVER['REQUEST_METHOD'];
+layout_page_header( lang_get( 'plugin_format_title' ) );
+layout_page_begin();
+print_manage_menu();
+auth_reauthenticate();
 $form_vars	= $$reqVar;
 $update_id	= $form_vars['update_id'] ;
-//require_once( '../../../core.php' );
-$basepad=config_get('path');
-
 $sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id and schedule_id=$update_id "; 
 $result = db_query($sql);
 $row = db_fetch_array($result);
 ?>
+<center>
+<div class="col-md-12 col-xs-12">
+<div class="space-10"></div>
+<div class="form-container" > 
+<div class="widget-box widget-color-blue2">
+<div class="widget-header widget-header-small">
+	<h4 class="widget-title lighter">
+		<i class="ace-icon fa fa-text-width"></i>
+		<?php echo  lang_get( 'plugin_query_name' ).': ' . lang_get( 'query_edit' )?>
+	</h4>
+</div>
+<div class="widget-body">
+<div class="widget-main no-padding">
+<div class="table-responsive"> 
+<table class="table table-bordered table-condensed table-striped"> 
 <form name="editschedule" method="post" action="edit_schedule2.php">
 
 <center>
@@ -19,17 +35,34 @@ $row = db_fetch_array($result);
 <br><br><br>
 </center>
 <input type="hidden" name="update_id" value="<?php echo $update_id;  ?>">
-<td><div align="center"><?php echo lang_get( 'schedule_filter' ) ?><br>
+<tr>
+<td width = "50%">	
+<br><?php echo lang_get( 'query_tip_8' ) ?></td>
+<td><b><?php echo lang_get( 'schedule_filter' ) ?></b><br>
 <textarea name="schedule_filter" rows="3" cols="50"><?php echo $row['schedule_filter'];  ?></textarea>
 </div>
 </td>
-<td><div align="center"><?php echo lang_get( 'schedule_target' ) ?><br>
+</tr>
+<tr>
+<td width = "50%">
+<br><?php echo lang_get( 'query_tip_9' ) ?></td>
+<td><div ><b><?php echo lang_get( 'schedule_target' ) ?></b><br>
 <textarea name="schedule_target" rows="3" cols="50"><?php echo $row['target'];  ?></textarea>
 </div>
 </td>
-	
-<center>
+
+</tr>
+<tr>
 <td><input name="Update" type="submit" value="Update"></td>
-<td><a href="plugin.php?page=Query/manage_schedule">Cancel<a/></td>
+<td align="right"><a href="plugin.php?page=Query/manage_schedule">Cancel<a/></td>
 </tr>
 </form>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<?php
+layout_page_end();

@@ -1,5 +1,4 @@
 <?PHP
-//require_once( '../../../core.php' );
 $update_id	= gpc_get_int( 'update_id' );
 $script		=  @$_REQUEST['query_script'] ;
 $tables		=  @$_REQUEST['query_tables'];
@@ -19,7 +18,8 @@ $type = $row['query_type'];
 if ($type <>'Q'){
 	$sql='';
 	$script = htmlentities($script);
-	$query = "update {plugin_Query_definitions} set query_sql='$sql',query_script='$script' where query_id=$update_id ";
+	$query = 'update {plugin_Query_definitions} set query_sql =  ' . db_param() . ', query_script = '  . db_param() . ' where query_id= ' . db_param() . '';
+	$result =db_query( $query, array($sql, $script, $update_id) );
 } else {
 	$script='';
 	# now compose the final sql statement
@@ -49,9 +49,10 @@ if ($type <>'Q'){
 		$sql .= ' order by ';
 		$sql .= $order;
 	}
-	$query = "update {plugin_Query_definitions} set query_sql='$sql',query_script='$script',query_tables='$tables',query_joins='$joins',query_fields='$fields',query_filter='$filters',query_order='$order',query_group='$group' where query_id=$update_id ";
+	$query = 'update {plugin_Query_definitions} set query_sql =  ' . db_param() . ', query_script = '  . db_param() . ' , query_tables = '   . db_param() . ' , query_joins = '  . db_param() . ' , query_fields = '  . db_param() . ' , query_filter =  ' . db_param() . ' , query_order = '  . db_param() . ' , query_group =  ' . db_param() . ' where query_id = '. db_param() . ' ';
+	$result =db_query( $query, array($sql, $script, $tables, $joins, $fields, $filters, $order, $group, $update_id) );
 }
-if(!db_query($query)){ 
+if(!$result){ 
 	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
 }
 print_header_redirect( 'plugin.php?page=Query/manage_query' );

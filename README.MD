@@ -1,6 +1,6 @@
 # Query plugin for MantisBT
 
-Version 2.13
+Version 2.14
 
 Copyright 2012 - 2024 by Cas Nuy www.NUY.info
 

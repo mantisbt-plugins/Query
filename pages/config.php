@@ -16,7 +16,7 @@ $link2=plugin_page('manage_schedule');
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
 		<i class="ace-icon fa fa-text-width"></i>
-		<?php echo  lang_get( 'plugin_query_name' ).': ' . lang_get( 'plugin_format_config' )?>
+		<?php echo  lang_get( 'plugin_query_name' ).': ' . lang_get( 'plugin_query_config' )?>
 	</h4>
 </div>
 <div class="widget-body">
