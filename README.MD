@@ -1,6 +1,6 @@
 # Query plugin for MantisBT
 
-Version 2.16
+Version 2.17
 
 Copyright 2012 - 2024 by Cas Nuy www.NUY.info
 
@@ -95,26 +95,45 @@ exec_schedule.php (https://example.com/mantisbt/plugins/Query/pages/exec_schedul
 
 ## Changelog
 
-Version 1.00	17-08-2012	Initial release<br>
-Version 1.01	22-08-2012	Bugfixes<br>
+Version 1.00	17-08-2012<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Initial release<br>
+Version 1.01	22-08-2012<br>	
+&nbsp;&nbsp;&nbsp;&nbsp		Bugfixes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Added option for users to execute query directly<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	- Only type Q can be run<br>
-Version 1.02	23-08-2012	Bugfixes<br>
+Version 1.02	23-08-2012<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Bugfixes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Added sensible samples of each type of query<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Allow standard email addresses in combination with mantis usernames<br>
-Version 1.03				Bugfix Schedule<br>
+Version 1.03<br>			
+&nbsp;&nbsp;&nbsp;&nbsp		Bugfix Schedule<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	- frequency was not stored<br>
-Version 1.04				Bugfix release<br>
-Version 1.05				Allowed for additional parameters when using S(cript)<br>
-Version 1.06				Decent subject of emails<br>
-Version 1.07				Added option to define Query as User or Admin only<br>
-version 1.08				Fixed from email address, which is causing the email to be placed into the junk mailbox<br>
-Version 2.01				Mantis 2x compatible<br>
-Version 2.10	01-05-2022	Major bugfix release<br>
-Version 2.11	07-01-2024	Replaced print_successful_redirect<br>
-Version 2.13	09-05-2024	removed deprecated function<br>
-Version 2.14	14-05-2024	Lay-out corrections and added some help text<br>
-Version 2.15	14-05-2024	Bug fixes<br>
-Version 2.16	15-05-2024	Lay-out corrections and moved some help text<br>
+Version 1.04<br>		
+&nbsp;&nbsp;&nbsp;&nbsp		Bugfix release<br>
+Version 1.05<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Allowed for additional parameters when using S(cript)<br>
+Version 1.06<br>	
+&nbsp;&nbsp;&nbsp;&nbsp		Decent subject of emails<br>
+Version 1.07<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Added option to define Query as User or Admin only<br>
+version 1.08<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Fixed from email address, which is causing the email to be placed into the junk mailbox<br>
+Version 2.01<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Mantis 2x compatible<br>
+Version 2.10	01-05-2022<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Major bugfix release<br>
+Version 2.11	07-01-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Replaced print_successful_redirect<br>
+Version 2.13	09-05-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		removed deprecated function<br>
+Version 2.14	14-05-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Lay-out corrections and added some help text<br>
+Version 2.15	14-05-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Bug fixes<br>
+Version 2.16	15-05-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Lay-out corrections and moved some help text<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Moved Changelog to Readme<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Made changes to lay-out (mantis standardization)<br>
+Version 2.17	16-05-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Removed User/Admin levels, handled via execution threshold)<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Included check on query uniqueness after editing query<br>

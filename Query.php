@@ -4,7 +4,7 @@ class QueryPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = lang_get( 'plugin_query_name' );
 		$this->description = lang_get( 'plugin_query_description' );
-		$this->version     = '2.16';
+		$this->version     = '2.17';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -82,7 +82,10 @@ class QueryPlugin extends MantisPlugin {
 						query_group			XL		DEFAULT \" '' \" ,
 						query_sql			XL		DEFAULT \" '' \" 
 						" ) ),
-				);
+			# drop field
+			array( 'DropColumnSQL', array( plugin_table( 'definitions' ), 'query_lvl' ) ),
+
+			);			
 	}
 
 }

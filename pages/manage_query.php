@@ -35,7 +35,6 @@ $link3	= plugin_page('manage_query');
 
 <td><div align="center"><b><?php echo lang_get( 'query_title' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_type' ); ?></b></div></td>
-<td><div align="center"><b><?php echo lang_get( 'query_lvl' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_desc' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_act' ); ?></b></div></td>
 
@@ -51,12 +50,7 @@ $link3	= plugin_page('manage_query');
 <option value="X" >eXtended</option> 
 </select>
 </td>
-<td class="center">
-<select <?php echo helper_get_tab_index() ?> name="query_lvl">
-<option value="U" >User</option> 
-<option value="A" >Admin only</option> 
-</select>
-</td>
+
 
 <td class="center">
 <textarea name="query_desc" rows="3" cols="40"></textarea>
@@ -69,14 +63,13 @@ $link3	= plugin_page('manage_query');
 </form>
 
 <?php
-$sql = "select query_id,query_name,query_desc,query_type,query_lvl from {plugin_Query_definitions} order by query_name";
+$sql = "select query_id,query_name,query_desc,query_type from {plugin_Query_definitions} order by query_name";
 $result = db_query($sql);
 while ($row = db_fetch_array($result)) {
 	?>
 	<tr>
 	<td><div align="center"><?php  echo html_entity_decode($row["query_name"]); ?>	</div></td>
 	<td><div align="center"><?php echo $row["query_type"]; ?></div></td>
-	<td><div align="center"><?php echo $row["query_lvl"]; ?></div></td>
 	<td><div align="left"><?PHP	echo html_entity_decode($row["query_desc"]);?>	</div></td>
 	<td><div>
 	<?php

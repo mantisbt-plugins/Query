@@ -44,7 +44,7 @@ if ( access_has_project_level( plugin_config_get( 'manage_threshold' ) )  ){
 
 
 <?php
-$sql = "select query_id,query_name,query_desc,query_type from {plugin_Query_definitions} where query_type='Q' and query_lvl='U' order by query_name ";
+$sql = "select query_id,query_name,query_desc,query_type from {plugin_Query_definitions} where query_type='Q' order by query_name ";
 $result = db_query($sql);
 while ($row = db_fetch_array($result)) {
 	?>

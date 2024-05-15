@@ -42,7 +42,7 @@ $s_query_execute_threshold 		= "Treshold for executing";
 $s_plugin_user_query			= "Query";
 $s_plugin_query_execute			= "Execution";
 $s_query_separator				= "Field Separator";
-$s_query_lvl					= "User / Admin";
+
 $s_query_sql					= "SQL statement";
 $s_build_sql					= "Build the sql statement in steps	( or just write the whole statement) ";
 $s_query_tip_1					= "You can list the tables with fully qualified name but also with the abbreviated version (replace prefix with '{' and suffix with '}' like mantis _bug_table_becomes {bug}. For the nexty step you can give them aliasses like {bug} b. this way you can relate to the table as 'b'";
