@@ -7,13 +7,13 @@ $filter		= $_REQUEST['schedule_filter'];
 $target		= $_REQUEST['schedule_target'];
 $frequency	= $_REQUEST['schedule_type'];
 if (empty($schedule)) {
-	trigger_error( ERROR_SCHEDULE_EMPTY_TITLE, ERROR );
+	plugin_error( QueryPlugin::ERROR_SCHEDULE_EMPTY_TITLE );
 }
 if (empty($target)) {
-	trigger_error( ERROR_SCHEDULE_EMPTY_TARGET, ERROR );
+	plugin_error( QueryPlugin::ERROR_SCHEDULE_EMPTY_TARGET );
 }
 if ($query_id<1) {
-	trigger_error( ERROR_SCHEDULE_EMPTY_QUERY, ERROR );
+	plugin_error( QueryPlugin::ERROR_SCHEDULE_EMPTY_QUERY );
 }
 
 $sql = "INSERT INTO {plugin_Query_schedule} ( schedule_desc,query_id, schedule_filter, target, frequency ) 	VALUES (  '$schedule','$query_id', '$filter','$target','$frequency')";

@@ -8,7 +8,7 @@ $query= "select * from {plugin_Query_schedule} where query_id= $delete_id";
 $result = db_query($query);
 $res2=db_num_rows($result);
 if ($res2 >0){
-	trigger_error( ERROR_DELETE_QUERY, ERROR );
+	plugin_error( QueryPlugin::ERROR_DELETE_QUERY );
 } else {
 	# Deleting category
 	$query = "DELETE FROM {plugin_Query_definitions} WHERE query_id = $delete_id";        
