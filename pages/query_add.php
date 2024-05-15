@@ -18,8 +18,7 @@ if ( $count >  0 ) {
 }
 // insert new query
 $sql = "INSERT INTO {plugin_Query_definitions} ( query_name,query_type,query_desc ) 	VALUES (  '$query','$type', '$desc')";
-if(!db_query($sql)){ 
-	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
-}
+$result = db_query($sql) ;
+
 print_header_redirect( 'plugin.php?page=Query/manage_query' );
 exit;

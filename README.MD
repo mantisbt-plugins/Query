@@ -1,6 +1,6 @@
 # Query plugin for MantisBT
 
-Version 2.17
+Version 2.18
 
 Copyright 2012 - 2024 by Cas Nuy www.NUY.info
 
@@ -19,25 +19,9 @@ The plugin requires MantisBT version 2.0.0 or higher.
 As any other plugin, place the Query directory in your plugins directory.
 After installing it within Mantis, click on the module to finalize the settings.
 
-### PHP 8.2 
+### PHP 8.2 or above
 
-When using PHP 8.2 or later, a change is required to `vendor/adodb/adodb-php/drivers/adodb-mysqli.inc.php`.
-Find the following lines
-
-```
-/*--------------------------------------------------------------------------------------
-	 Class Name: Recordset
---------------------------------------------------------------------------------------*/
-class ADORecordSet_mysqli extends ADORecordSet{
-```
-and make it look like this:
-```
-/*--------------------------------------------------------------------------------------
-	 Class Name: Recordset
---------------------------------------------------------------------------------------*/
-#[AllowDynamicProperties]
-class ADORecordSet_mysqli extends ADORecordSet{
-```
+When using PHP 8.2 or later, ensure you are running at least version 2.26.
 
 ## Usage
 
@@ -134,6 +118,9 @@ Version 2.16	15-05-2024<br>
 &nbsp;&nbsp;&nbsp;&nbsp		Lay-out corrections and moved some help text<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Moved Changelog to Readme<br>
 &nbsp;&nbsp;&nbsp;&nbsp;	Made changes to lay-out (mantis standardization)<br>
-Version 2.17	16-05-2024<br>
-&nbsp;&nbsp;&nbsp;&nbsp		Removed User/Admin levels, handled via execution threshold)<br>
+Version 2.17	15-05-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Removed User/Admin levels, handled via execution theshold)<br>
 &nbsp;&nbsp;&nbsp;&nbsp		Included check on query uniqueness after editing query<br>
+Version 2.18	15-05-2024
+&nbsp;&nbsp;&nbsp;&nbsp		Fixed bug with non-valid query<br>
+&nbsp;&nbsp;&nbsp;&nbsp		Further beautifying<br>

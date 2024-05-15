@@ -27,9 +27,10 @@ $link3	= plugin_page('manage_query');
 <form action="<?php echo plugin_page( 'config_edit' ) ?>" method="post">
 <tr>
 <td class="form_title" colspan="4" >
-<?php print_link_button( $link1, lang_get( 'plugin_query_config' ) );?>
-<?php print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
+<?php // print_link_button( $link1, lang_get( 'plugin_query_config' ) );?>
 <?php print_link_button( $link3, lang_get( 'plugin_query_manage' ) );?>
+&nbsp;
+<?php print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
 </td>
 </tr>
 

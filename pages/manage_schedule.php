@@ -26,7 +26,8 @@ $link3	= plugin_page('manage_query');
 <tr>
 <td class="form-title" colspan="6" >
 <?php print_link_button( $link1, lang_get( 'plugin_query_config' ) );?>
-<?php print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
+&nbsp;
+<?php // print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
 <?php print_link_button( $link3, lang_get( 'plugin_query_manage' ) );?>
 </td>
 </tr>
@@ -39,6 +40,35 @@ $link3	= plugin_page('manage_query');
 <td><div align="center"><b><?php echo lang_get( 'schedule_frequency' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_act' ); ?></b></div></td>
 
+
+
+<?php
+$sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id order by schedule_desc";
+$result = db_query($sql);
+while ($row = db_fetch_array($result)) {
+	?>
+	<tr>
+	<td><div align="center"><?php  echo html_entity_decode($row["schedule_desc"]); ?>	</div></td>
+	<td><div align="center">	<?php  echo html_entity_decode($row["query_name"]); ?>	</div></td>
+	<td><div align="center"><?php echo $row["schedule_filter"]; ?></div></td>
+	<td><div align="center"><?PHP	echo html_entity_decode($row["target"]);?>	</div></td>
+	<td><div align="center"><?php echo $row["frequency"]; ?></div></td>
+	<td class="center" colspan="3"><div>
+	
+		<?php
+	$link6 = "plugin.php?page=Query/edit_schedule.php&update_id=";
+	$link6 .= $row["schedule_id"]  ;
+	$link7 = "plugin.php?page=Query/schedule_delete.php&delete_id=";
+	$link7 .= $row["schedule_id"]  ;
+	print_link_button( $link6, lang_get( 'query_edit' ), 'btn-xs' );
+	print_link_button( $link7, lang_get( 'query_delete' ), 'btn-xs');
+	?>
+
+	</div></td>
+	</tr>
+	<?PHP
+}
+?>
 <tr >
 <td class="center">
 <input type="text" name="schedule_desc" size="30" maxlength="100"  >
@@ -85,35 +115,7 @@ while ($row1 = db_fetch_array($result1)) {
 </td>
 </tr>
 
-<form>
-
-<?php
-$sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id order by schedule_desc";
-$result = db_query($sql);
-while ($row = db_fetch_array($result)) {
-	?>
-	<tr>
-	<td><div align="center"><?php  echo html_entity_decode($row["schedule_desc"]); ?>	</div></td>
-	<td><div align="center">	<?php  echo html_entity_decode($row["query_name"]); ?>	</div></td>
-	<td><div align="center"><?php echo $row["schedule_filter"]; ?></div></td>
-	<td><div align="center"><?PHP	echo html_entity_decode($row["target"]);?>	</div></td>
-	<td><div align="center"><?php echo $row["frequency"]; ?></div></td>
-	<td><div>
-	
-		<?php
-	$link6 = "plugin.php?page=Query/edit_schedule.php&update_id=";
-	$link6 .= $row["schedule_id"]  ;
-	$link7 = "plugin.php?page=Query/schedule_delete.php&delete_id=";
-	$link7 .= $row["schedule_id"]  ;
-	print_link_button( $link6, lang_get( 'query_edit' ) );
-	print_link_button( $link7, lang_get( 'query_delete' ));
-	?>
-
-	</div></td>
-	</tr>
-	<?PHP
-}
-?>
+</form>
 </table>
 </div>
 </div>

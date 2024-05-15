@@ -16,6 +16,17 @@ $row = db_fetch_array( $result );
 # action depends on type of script
 $action = $row['query_type'] ;
 
+# do we have a vailid query\
+if ( $action == 'Q' ) {
+	if ( trim( $row['query_sql'] ) ) == '' ) {
+		trigger_error( ERROR_QUERY_NOT_VALID, ERROR );
+	}
+} else {
+	if ( trim( $row['query_script'] ) ) == '' ) {
+		trigger_error( ERROR_QUERY_NOT_VALID, ERROR );
+	}
+}
+
 # now create a unique filename
 $filename = uniqid(mt_rand(), true) . '.csv';
 

@@ -63,3 +63,4 @@ $s_plugin_Query_error_schedule_empty_title = 'Schedule must have a name.';
 $s_plugin_Query_error_schedule_empty_target = 'Schedule must have recipient(s).';
 $s_plugin_Query_error_schedule_empty_query = 'Schedule must have a query connected.';
 $s_plugin_Query_error_query_name_not_unique = 'Query name is not unique, please adjust.';
+$s_plugin_Query_error_query_not_valid = 'Query is not valid, please review.';

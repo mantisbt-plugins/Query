@@ -9,11 +9,12 @@ class QueryPlugin extends MantisPlugin {
 	const ERROR_SCHEDULE_EMPTY_TARGET = "error_schedule_empty_target";
 	const ERROR_SCHEDULE_EMPTY_QUERY = "error_schedule_empty_query";
 	const ERROR_QUERY_NAME_NOT_UNIQUE = "error_query_name_not_unique";
+	const ERROR_QUERY_NOT_VALID = "error_query_not_valid";
 
 	function register() {
 		$this->name        = lang_get( 'plugin_query_name' );
 		$this->description = lang_get( 'plugin_query_description' );
-		$this->version     = '2.17';
+		$this->version     = '2.18';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';
@@ -47,7 +48,8 @@ class QueryPlugin extends MantisPlugin {
 			self::ERROR_SCHEDULE_EMPTY_TITLE => plugin_lang_get( self::ERROR_SCHEDULE_EMPTY_TITLE ),
 			self::ERROR_SCHEDULE_EMPTY_TARGET => plugin_lang_get( self::ERROR_SCHEDULE_EMPTY_TARGET ),
 			self::ERROR_SCHEDULE_EMPTY_QUERY => plugin_lang_get( self::ERROR_SCHEDULE_EMPTY_QUERY ),
-			self::ERROR_QUERY_NAME_NOT_UNIQUE => plugin_lang_get( self::QUERY_NAME_NOT_UNIQUE ),
+			self::ERROR_QUERY_NAME_NOT_UNIQUE => plugin_lang_get( self::ERROR_QUERY_NAME_NOT_UNIQUE ),
+			self::ERROR_QUERY_NOT_VALID => plugin_lang_get( self::ERROR_QUERY_NOT_VALID ),
 		];
 	}
 
