@@ -17,8 +17,6 @@ if ($query_id<1) {
 }
 
 $sql = "INSERT INTO {plugin_Query_schedule} ( schedule_desc,query_id, schedule_filter, target, frequency ) 	VALUES (  '$schedule','$query_id', '$filter','$target','$frequency')";
+db_query($sql);
 
-if(!db_query($sql)){ 
-	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
-}
 print_header_redirect( 'plugin.php?page=Query/manage_schedule' );

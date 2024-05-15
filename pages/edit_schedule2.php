@@ -8,7 +8,5 @@ $target	= htmlentities($_REQUEST['schedule_target'],ENT_COMPAT,'UTF-8'));
 # Updating schedule
 $q3_table =  plugin_table('schedule','Query');
 $query = "update {plugin_Query_schedule} set schedule_filter='$filter',target='$target' where schedule_id=$update_id ";
-if(!db_query($query)){ 
-	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
-}		
+db_query($query);
 print_header_redirect( 'plugin.php?page=Query/manage_schedule' );
