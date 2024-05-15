@@ -1,6 +1,15 @@
 <?php
 class QueryPlugin extends MantisPlugin {
 
+	/** Error constants */
+	const ERROR_DELETE_QUERY = "error_delete_query";
+	const ERROR_QUERY_EMPTY_TITLE = "error_query_empty_title";
+	const ERROR_QUERY_EMPTY_DESC = "error_query_empty_desc";
+	const ERROR_SCHEDULE_EMPTY_TITLE = "error_schedule_empty_title";
+	const ERROR_SCHEDULE_EMPTY_TARGET = "error_schedule_empty_target";
+	const ERROR_SCHEDULE_EMPTY_QUERY = "error_schedule_empty_query";
+	const ERROR_QUERY_NAME_NOT_UNIQUE = "error_query_name_not_unique";
+
 	function register() {
 		$this->name        = lang_get( 'plugin_query_name' );
 		$this->description = lang_get( 'plugin_query_description' );
@@ -28,6 +37,18 @@ class QueryPlugin extends MantisPlugin {
 	function init() {
 		plugin_event_hook( 'EVENT_MENU_MANAGE',		'query_menu' );
 		plugin_event_hook( 'EVENT_MENU_MAIN',		'query_menu_user' );
+	}
+
+	function errors() {
+		return [
+			self::ERROR_DELETE_QUERY => plugin_lang_get( self::ERROR_DELETE_QUERY ),
+			self::ERROR_QUERY_EMPTY_TITLE => plugin_lang_get( self::ERROR_QUERY_EMPTY_TITLE ),
+			self::ERROR_QUERY_EMPTY_DESC => plugin_lang_get( self::ERROR_QUERY_EMPTY_DESC ),
+			self::ERROR_SCHEDULE_EMPTY_TITLE => plugin_lang_get( self::ERROR_SCHEDULE_EMPTY_TITLE ),
+			self::ERROR_SCHEDULE_EMPTY_TARGET => plugin_lang_get( self::ERROR_SCHEDULE_EMPTY_TARGET ),
+			self::ERROR_SCHEDULE_EMPTY_QUERY => plugin_lang_get( self::ERROR_SCHEDULE_EMPTY_QUERY ),
+			self::ERROR_QUERY_NAME_NOT_UNIQUE => plugin_lang_get( self::QUERY_NAME_NOT_UNIQUE ),
+		];
 	}
 
  	function query_menu() {

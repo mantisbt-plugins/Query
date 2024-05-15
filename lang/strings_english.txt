@@ -56,18 +56,10 @@ $s_query_tip_8					= "You can define  an  additional filter if you have that wit
 $s_query_tip_9					= "Provide the recipients of this query. You can add multiple e-mail adresses seprated by a comma.";
 $s_query_tip_10					= "Simply copy and paste the query in full (after testing it in a tool like phpmyadmin). NB, you cannot use additional filters while scheduling";
 
-
-define('ERROR_DELETE_QUERY', "ERROR_DELETE_QUERY"); 
-define('ERROR_QUERY_EMPTY_TITLE', "ERROR_QUERY_EMPTY_TITLE"); 
-define('ERROR_QUERY_EMPTY_DESC', "ERROR_QUERY_EMPTY_DESC"); 
-define('ERROR_SCHEDULE_EMPTY_TITLE', "ERROR_SCHEDULE_EMPTY_TITLE"); 
-define('ERROR_SCHEDULE_EMPTY_TARGET', "ERROR_SCHEDULE_EMPTY_TARGET"); 
-define('ERROR_SCHEDULE_EMPTY_QUERY', "ERROR_SCHEDULE_EMPTY_QUERY"); 
-define('ERROR_QUERY_NAME_NOT_UNIQUE',"ERROR_QUERY_NAME_NOT_UNIQUE");
-
-$MANTIS_ERROR['ERROR_DELETE_QUERY'] = 'Query is scheduled, cannot be deleted.';
-$MANTIS_ERROR['ERROR_QUERY_EMPTY_TITLE'] = 'Query must have a name.';
-$MANTIS_ERROR['ERROR_QUERY_EMPTY_DESC'] = 'Query must have a proper description.';
-$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_TITLE'] = 'Schedule must have a name.';
-$MANTIS_ERROR['ERROR_SCHEDULE_EMPTY_TARGET'] = 'Schedule must have recipient(s).';
-$MANTIS_ERROR['ERROR_QUERY_NAME_NOT_UNIQUE'] = 'Query name is not unique, please adjust.';
+$s_plugin_Query_error_delete_query = 'Query is scheduled, cannot be deleted.';
+$s_plugin_Query_error_query_empty_title = 'Query must have a name.';
+$s_plugin_Query_error_query_empty_desc = 'Query must have a proper description.';
+$s_plugin_Query_error_schedule_empty_title = 'Schedule must have a name.';
+$s_plugin_Query_error_schedule_empty_target = 'Schedule must have recipient(s).';
+$s_plugin_Query_error_schedule_empty_query = 'Schedule must have a query connected.';
+$s_plugin_Query_error_query_name_not_unique = 'Query name is not unique, please adjust.';

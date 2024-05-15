@@ -69,7 +69,5 @@ if ($type <>'Q'){
 		$result =db_query( $query, array($name,$desc,$sql, $script, $update_id) );
 	}
 }
-if(!$result){ 
-	trigger_error( ERROR_DB_QUERY_FAILED, ERROR );
-}
+
 print_header_redirect( 'plugin.php?page=Query/manage_query' );
