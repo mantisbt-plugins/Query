@@ -9,7 +9,6 @@ $sql = "select * from {plugin_Query_definitions} where query_id=$update_id";
 $result = db_query($sql);
 $row = db_fetch_array($result);
 $type = $row['query_type'];
-$lvl = $row['query_lvl'];
 ?>
 <center>
 <div class="col-md-12 col-xs-12">
@@ -40,27 +39,6 @@ $lvl = $row['query_lvl'];
 <td><div ><?php echo lang_get( 'query_desc' ); ?></div></td>
 <td >
 <textarea name="query_desc" rows="3" cols="50" ><?php echo $row['query_desc'];?></textarea>
-</td>
-</tr>
-<tr>
-<td><div ><?php echo lang_get( 'query_lvl' ); ?></div></td>
-<td >
-<select <?php echo helper_get_tab_index() ?> name="query_lvl">
-<?php
-if ( $lvl == "U" ) {
-	$lvlu= 'selected="selected"';
-} else {
-	$lvlu = '';
-}
-if ( $lvl == "A" ) {
-	$lvla= 'selected="selected"';
-} else {
-	$lvla = '';
-}
-?>
-<option value="U" <?php echo $lvlu ?> >User</option> 
-<option value="A" <?php echo $lvla ?> >Admin only</option> 
-</select>
 </td>
 </tr>
 <?PHP
