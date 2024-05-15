@@ -4,7 +4,7 @@ class QueryPlugin extends MantisPlugin {
 	function register() {
 		$this->name        = lang_get( 'plugin_query_name' );
 		$this->description = lang_get( 'plugin_query_description' );
-		$this->version     = '2.15';
+		$this->version     = '2.16';
 		$this->requires    = array('MantisCore'       => '2.0.0',);
 		$this->author      = 'Cas Nuy';
 		$this->contact     = 'Cas-at-nuy.info';

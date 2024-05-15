@@ -1,6 +1,6 @@
 # Query plugin for MantisBT
 
-Version 2.14
+Version 2.16
 
 Copyright 2012 - 2024 by Cas Nuy www.NUY.info
 
@@ -92,3 +92,29 @@ This needs to be set up by your admin using either CRON or Windows Scheduled tas
 In order to run in batch mode, one needs to schedule the following job:
 
 exec_schedule.php (https://example.com/mantisbt/plugins/Query/pages/exec_schedule.php)
+
+## Changelog
+
+Version 1.00	17-08-2012	Initial release<br>
+Version 1.01	22-08-2012	Bugfixes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Added option for users to execute query directly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	- Only type Q can be run<br>
+Version 1.02	23-08-2012	Bugfixes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Added sensible samples of each type of query<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Allow standard email addresses in combination with mantis usernames<br>
+Version 1.03				Bugfix Schedule<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	- frequency was not stored<br>
+Version 1.04				Bugfix release<br>
+Version 1.05				Allowed for additional parameters when using S(cript)<br>
+Version 1.06				Decent subject of emails<br>
+Version 1.07				Added option to define Query as User or Admin only<br>
+version 1.08				Fixed from email address, which is causing the email to be placed into the junk mailbox<br>
+Version 2.01				Mantis 2x compatible<br>
+Version 2.10	01-05-2022	Major bugfix release<br>
+Version 2.11	07-01-2024	Replaced print_successful_redirect<br>
+Version 2.13	09-05-2024	removed deprecated function<br>
+Version 2.14	14-05-2024	Lay-out corrections and added some help text<br>
+Version 2.15	14-05-2024	Bug fixes<br>
+Version 2.16	15-05-2024	Lay-out corrections and moved some help text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Moved Changelog to Readme<br>
+&nbsp;&nbsp;&nbsp;&nbsp;	Made changes to lay-out (mantis standardization)<br>

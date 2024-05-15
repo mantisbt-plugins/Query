@@ -10,6 +10,7 @@ $group		=  @$_REQUEST['query_group'];
 $name		=  @$_REQUEST['query_name'];
 $desc		=  @$_REQUEST['query_desc'];
 $lvl		=  @$_REQUEST['query_lvl'];
+$query_sql	=  @$_REQUEST['query_sql'];
 # Updating query
 // get current values
 $query = "select query_type from {plugin_Query_definitions} where query_id=$update_id";

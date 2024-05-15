@@ -4,8 +4,9 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin();
 print_manage_menu();
-$link=plugin_page('config');
-$link2=plugin_page('manage_schedule');
+$link1	= plugin_page('config');
+$link2	= plugin_page('manage_schedule');
+$link3	= plugin_page('manage_query');
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
@@ -22,30 +23,21 @@ $link2=plugin_page('manage_schedule');
 <div class="widget-main no-padding">
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped"> 
-
-
 <form action="<?php echo plugin_page( 'query_add' ) ?>" method="post">
-
-
-<tr >
-<td class="category" colspan="5">
-</td>
-</tr>
-<br>
 <tr>
 <td class="form-title" colspan="4" >
-<a href="<?php echo $link ?>"><?php echo lang_get( 'plugin_query_config' ) ?></a>
-<==>
-<a href="<?php echo $link2 ?>"><?php echo lang_get( 'manage_schedule' ) ?></a>
+<?php print_link_button( $link1, lang_get( 'plugin_query_config' ) );?>
+<?php print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
+<?php print_link_button( $link3, lang_get( 'plugin_query_manage' ) );?>
 </td>
 </tr>
-
 <tr class="row-category">
-<td><div align="center"><?php echo lang_get( 'query_title' ); ?></div></td>
-<td><div align="center"><?php echo lang_get( 'query_type' ); ?></div></td>
-<td><div align="center"><?php echo lang_get( 'query_lvl' ); ?></div></td>
-<td><div align="center"><?php echo lang_get( 'query_desc' ); ?></div></td>
-<td><div align="center"><?php echo lang_get( 'query_act' ); ?></div></td>
+
+<td><div align="center"><b><?php echo lang_get( 'query_title' ); ?></b></div></td>
+<td><div align="center"><b><?php echo lang_get( 'query_type' ); ?></b></div></td>
+<td><div align="center"><b><?php echo lang_get( 'query_lvl' ); ?></b></div></td>
+<td><div align="center"><b><?php echo lang_get( 'query_desc' ); ?></b></div></td>
+<td><div align="center"><b><?php echo lang_get( 'query_act' ); ?></b></div></td>
 
 <tr >
 <td class="center">
@@ -70,7 +62,7 @@ $link2=plugin_page('manage_schedule');
 <textarea name="query_desc" rows="3" cols="40"></textarea>
 </td>
 <td class="center" colspan="3">
-<input type="submit" class="button" value="<?php echo lang_get( 'add_query' ) ?>" />
+<input type="submit" class="btn btn-primary btn-white btn-round"  value="<?php echo lang_get( 'add_query' ) ?>" />
 </td>
 </tr>
 
@@ -87,11 +79,17 @@ while ($row = db_fetch_array($result)) {
 	<td><div align="center"><?php echo $row["query_lvl"]; ?></div></td>
 	<td><div align="left"><?PHP	echo html_entity_decode($row["query_desc"]);?>	</div></td>
 	<td><div>
-	<a href="plugin.php?page=Query/edit_query.php&update_id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_edit' ) ?></a>
-	<a href="plugin.php?page=Query/query_delete.php&delete_id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_delete' ) ?></a>
-	<a href="plugin.php?page=Query/exec_query.php&id=<?php echo $row["query_id"]; ?>"><?php echo lang_get( 'query_execute' ) ?></a>
-
-
+	<?php
+	$link6 = "plugin.php?page=Query/edit_query.php&update_id=";
+	$link6 .= $row["query_id"]  ;
+	$link7 = "plugin.php?page=Query/query_delete.php&delete_id=";
+	$link7 .= $row["query_id"]  ;
+		$link8 = "plugin.php?page=Query/exec_query.php&id=";
+	$link8 .= $row["query_id"]  ;
+	print_link_button( $link6, lang_get( 'query_edit' ) );
+	print_link_button( $link7, lang_get( 'query_delete' ));
+	print_link_button( $link8, lang_get( 'query_execute' ) );
+	?>
 	</div></td>
 	</tr>
 	<?PHP

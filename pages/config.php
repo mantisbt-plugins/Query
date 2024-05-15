@@ -4,8 +4,9 @@ access_ensure_global_level( config_get( 'manage_plugin_threshold' ) );
 layout_page_header( lang_get( 'plugin_format_title' ) );
 layout_page_begin( 'config_page.php' );
 print_manage_menu();
-$link=plugin_page('manage_query');
-$link2=plugin_page('manage_schedule');
+$link1	= plugin_page('config');
+$link2	= plugin_page('manage_schedule');
+$link3	= plugin_page('manage_query');
 ?>
 
 <div class="col-md-12 col-xs-12">
@@ -24,18 +25,11 @@ $link2=plugin_page('manage_schedule');
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped"> 
 <form action="<?php echo plugin_page( 'config_edit' ) ?>" method="post">
-
-<tr >
-<td class="category" colspan="4">
-</td>
-</tr>
-<br>
 <tr>
 <td class="form_title" colspan="4" >
-<a href="<?php echo $link ?>"><?php echo lang_get( 'plugin_query_manage' ) ?></a>
-<==>
-<a href="<?php echo $link2 ?>"><?php echo lang_get( 'manage_schedule' ) ?></a>
-<br><br>
+<?php print_link_button( $link1, lang_get( 'plugin_query_config' ) );?>
+<?php print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
+<?php print_link_button( $link3, lang_get( 'plugin_query_manage' ) );?>
 </td>
 </tr>
 
@@ -131,7 +125,7 @@ $link2=plugin_page('manage_schedule');
 
 <tr>
 <td class="center" colspan="3">
-<input type="submit" class="button" value="<?php echo lang_get( 'change_configuration' ) ?>" />
+<input type="submit" class="btn btn-primary btn-white btn-round" value="<?php echo lang_get( 'change_configuration' ) ?>" />
 </td>
 </tr>
 </table>

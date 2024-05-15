@@ -36,9 +36,10 @@ $row = db_fetch_array($result);
 </center>
 <input type="hidden" name="update_id" value="<?php echo $update_id;  ?>">
 <tr>
-<td width = "50%">	
-<br><?php echo lang_get( 'query_tip_8' ) ?></td>
-<td><b><?php echo lang_get( 'schedule_filter' ) ?></b><br>
+<td width = "50%">
+<b><?php echo lang_get( 'schedule_filter' ) ?></b><br>	
+<?php echo lang_get( 'query_tip_8' ) ?></td>
+<td>
 <?php if ( ON == plugin_config_get( 'build_sql' ) ) { ?>
 	<textarea name="schedule_filter" rows="3" cols="50"><?php echo $row['schedule_filter'];  ?></textarea>
 <?php
@@ -50,16 +51,21 @@ $row = db_fetch_array($result);
 </tr>
 <tr>
 <td width = "50%">
-<br><?php echo lang_get( 'query_tip_9' ) ?></td>
-<td><div ><b><?php echo lang_get( 'schedule_target' ) ?></b><br>
+<b><?php echo lang_get( 'schedule_target' ) ?></b><br>
+<?php echo lang_get( 'query_tip_9' ) ?></td>
+<td><div >
 <textarea name="schedule_target" rows="3" cols="50"><?php echo $row['target'];  ?></textarea>
 </div>
 </td>
 
 </tr>
 <tr>
-<td><input name="Update" type="submit" value="Update"></td>
-<td align="right"><a href="plugin.php?page=Query/manage_schedule">Cancel<a/></td>
+<td><input name="Update" type="submit" class="btn btn-primary btn-white btn-round" value="Update"></td>
+<td align="right">
+<?PHP	
+print_link_button( "plugin.php?page=Query/manage_schedule", 'Cancel' ) ;
+?>
+</td>
 </tr>
 </form>
 </table>

@@ -68,10 +68,10 @@ if ($type<>"Q"){
 	?>
 	<tr>
 	<td width="50%">
-	<br>
+	<b><?php echo lang_get( 'query_script' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_7' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_script' ) ?></b><br>
+	<td><div >
 	<textarea name="query_script" rows="20" cols="75"><?php echo $row['query_script'];  ?></textarea>
 	</div>
 	</td>
@@ -82,50 +82,51 @@ if ($type<>"Q"){
 	?>
 	<tr>
 	<td width="50%">
-	<br>
+	<b><?php echo lang_get( 'query_tables' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_1' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_tables' ) ?><b><br>
+	<td><div >
 	<textarea name="query_tables" rows="3" cols="50"><?php echo $row['query_tables'];  ?></textarea>
 	</div></td></tr>
 	<tr>
 	<td width="50%">
-	<br>
+	<b><?php echo lang_get( 'query_joins' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_2' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_joins' ) ?></b><br>
+	<td><div >
 	<textarea name="query_joins" rows="3" cols="50"><?php echo $row['query_joins'];  ?></textarea>
 	</div></td></tr>
 	<tr>
 	<td width="50%">
-	<br>
+	<b><?php echo lang_get( 'query_fields' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_3' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_fields' ) ?></b><br>
+	<td><div >
 	<textarea name="query_fields" rows="3" cols="50"><?php echo $row['query_fields'];  ?></textarea>
 	</div></td></tr>
 	<tr>
 	<td width="50%">
-	<br>
+	<b><?php echo lang_get( 'query_filters' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_4' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_filters' ) ?></b><br>
+	<td><div >
 	<textarea name="query_filters" rows="3" cols="50"><?php echo $row['query_filter'];  ?></textarea>
 	</div></td></tr>
 	<tr>
 	<br>
 	<td width="50%">
-	<br>
+	<b><?php echo lang_get( 'query_order' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_5' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_order' ) ?></b><br>
+	<td><div >
 	<textarea name="query_order" rows="3" cols="50"><?php echo $row['query_order'];  ?></textarea>
 	</div></td></tr>
 	<tr>
 	<td width="50%">
+	<b><?php echo lang_get( 'query_group' ) ?></b><br>
 	<?php echo lang_get( 'query_tip_6' ) ?>
 	</td>
-	<td><div ><b><?php echo lang_get( 'query_group' ) ?></b><br>
+	<td><div >
 	<textarea name="query_group" rows="3" cols="50"><?php echo $row['query_group'];  ?></textarea>
 	</div></td></tr>
 	<?PHP
@@ -133,10 +134,10 @@ if ($type<>"Q"){
 		?>
 		<tr>
 		<td width="50%">
-		<br>
+		<b><?php echo lang_get( 'query_sql' ) ?></b><br>
 		<?php echo lang_get( 'query_tip_10' ) ?>
 		</td>
-		<td><div ><b><?php echo lang_get( 'query_sql' ) ?></b><br>
+		<td><div >
 		<textarea name="query_sql" rows="20" cols="75"><?php echo $row['query_sql'];  ?></textarea>
 		</div>
 		</td>
@@ -146,8 +147,12 @@ if ($type<>"Q"){
 }
 ?>
 <tr>
-<td><input name="Update" type="submit" value="Update"></td>
-<td align="right"><a href="plugin.php?page=Query/manage_query">Cancel<a/></td>
+<td><input name="Update" class="btn btn-primary btn-white btn-round"  type="submit" value="Update"></td>
+<td align="right">
+<?PHP	
+print_link_button( "plugin.php?page=Query/manage_query", 'Cancel' ) ;
+?>
+</td>
 </tr>
 </table></form>
 </div>

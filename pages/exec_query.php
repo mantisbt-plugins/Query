@@ -105,7 +105,7 @@ switch($action){
 					$content .= "$separator" ;
 				}
 				$name = $fieldar[$i];
-				$content .= strtolower( $row2[trim( $name )] ) ;
+				$content .= $row2[strtolower( trim( $name ) )] ;
 			}
 			$content .= "\r\n";
 		}
