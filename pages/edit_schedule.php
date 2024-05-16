@@ -6,9 +6,10 @@ print_manage_menu();
 auth_reauthenticate();
 $form_vars	= $$reqVar;
 $update_id	= $form_vars['update_id'] ;
-$sql = "select b.*,query_name from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id and schedule_id=$update_id "; 
+$sql = "select b.*,query_name, query_type from {plugin_Query_definitions} as a,{plugin_Query_schedule} as b  where  a.query_id=b.query_id and schedule_id=$update_id "; 
 $result = db_query($sql);
 $row = db_fetch_array($result);
+$type = $row['query_type'];
 ?>
 <center>
 <div class="col-md-12 col-xs-12">
@@ -26,7 +27,6 @@ $row = db_fetch_array($result);
 <div class="table-responsive"> 
 <table class="table table-bordered table-condensed table-striped"> 
 <form name="editschedule" method="post" action="edit_schedule2.php">
-
 <center>
 <strong><?php echo lang_get( 'schedule_update_comments' ) ?>: </strong>
 <?php echo $row['schedule_desc'];?>
@@ -40,12 +40,15 @@ $row = db_fetch_array($result);
 <b><?php echo lang_get( 'schedule_filter' ) ?></b><br>	
 <?php echo lang_get( 'query_tip_8' ) ?></td>
 <td>
-<?php if ( ON == plugin_config_get( 'build_sql' ) ) { ?>
+<?php
+if ( OFF == plugin_config_get( 'build_sql' )  and ( $type == 'Q' ) ) { 
+	echo lang_get( 'no_schedule_filter' );
+} else { 
+?>
 	<textarea name="schedule_filter" rows="3" cols="50"><?php echo $row['schedule_filter'];  ?></textarea>
 <?php
- } else {
-	echo lang_get( 'no_schedule_filter' );
- }	 ?>
+ }	 
+ ?>
 </div>
 </td>
 </tr>
@@ -57,7 +60,6 @@ $row = db_fetch_array($result);
 <textarea name="schedule_target" rows="3" cols="50"><?php echo $row['target'];  ?></textarea>
 </div>
 </td>
-
 </tr>
 <tr>
 <td><input name="Update" type="submit" class="btn btn-primary btn-white btn-round" value="Update"></td>

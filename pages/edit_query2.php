@@ -32,36 +32,36 @@ if ($type <>'Q'){
 	$result =db_query( $query, array($name,$desc,$sql, $script, $update_id) );
 } else {
 	if ( ON == plugin_config_get('build_sql' ) ) {
-	$script='';
-	# now compose the final sql statement
-	$sql = 'select ';
-	$sql .= $fields;
-	$sql .= ' from ';
-	$sql .= $tables ;
-	$where ='';
-	if (!empty($joins)){
-		$where .= ' where ';
-		$where .= $joins;
-	}	
-	if (!empty($filters)){
-		if (empty($where)){
+		$script='';
+		# now compose the final sql statement
+		$sql = 'select ';
+		$sql .= $fields;
+		$sql .= ' from ';
+		$sql .= $tables ;
+		$where ='';
+		if (!empty($joins)){
 			$where .= ' where ';
-		} else {
-			$where .= ' and ';
+			$where .= $joins;
+		}	
+		if (!empty($filters)){
+			if (empty($where)){
+				$where .= ' where ';
+			} else {
+				$where .= ' and ';
+			}
+			$where .= $filters;
+		}	
+		$sql .= $where;
+		if (!empty($group)){
+			$sql .= ' group by ';
+			$sql .= $group;
 		}
-		$where .= $filters;
-	}	
-	$sql .= $where;
-	if (!empty($group)){
-		$sql .= ' group by ';
-		$sql .= $group;
-	}
-	if (!empty($order)){
-		$sql .= ' order by ';
-		$sql .= $order;
-	}
-	$query = 'update {plugin_Query_definitions} set query_name= ' . db_param() . ', query_desc= ' . db_param() . ', query_sql =  ' . db_param() . ', query_script = '  . db_param() . ' , query_tables = '   . db_param() . ' , query_joins = '  . db_param() . ' , query_fields = '  . db_param() . ' , query_filter =  ' . db_param() . ' , query_order = '  . db_param() . ' , query_group =  ' . db_param() . ' where query_id = '. db_param() . ' ';
-	$result =db_query( $query, array($name,$desc,$sql, $script, $tables, $joins, $fields, $filters, $order, $group, $update_id) );
+		if (!empty($order)){
+			$sql .= ' order by ';
+			$sql .= $order;
+		}
+		$query = 'update {plugin_Query_definitions} set query_name= ' . db_param() . ', query_desc= ' . db_param() . ', query_sql =  ' . db_param() . ', query_script = '  . db_param() . ' , query_tables = '   . db_param() . ' , query_joins = '  . db_param() . ' , query_fields = '  . db_param() . ' , query_filter =  ' . db_param() . ' , query_order = '  . db_param() . ' , query_group =  ' . db_param() . ' where query_id = '. db_param() . ' ';
+		$result =db_query( $query, array($name,$desc,$sql, $script, $tables, $joins, $fields, $filters, $order, $group, $update_id) );
 	} else {
 		$sql = htmlentities($query_sql);
 		$script = ' ';
@@ -69,5 +69,4 @@ if ($type <>'Q'){
 		$result =db_query( $query, array($name,$desc,$sql, $script, $update_id) );
 	}
 }
-
 print_header_redirect( 'plugin.php?page=Query/manage_query' );

@@ -1,11 +1,10 @@
 <?php
 layout_page_header( lang_get( 'plugin_format_title' ) );
-layout_page_begin( __FILE__ );
+layout_page_begin();
 ?>
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
 <div class="form-container" > 
-
 <div class="widget-box widget-color-blue2">
 <div class="widget-header widget-header-small">
 	<h4 class="widget-title lighter">
@@ -35,13 +34,11 @@ if ( access_has_project_level( plugin_config_get( 'manage_threshold' ) )  ){
 </td>
 </tr>
 
-
 <tr class="row-category">
 <td><div align="center"><b><?php echo lang_get( 'query_title' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_type' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_desc' ); ?></b></div></td>
 <td><div align="center"><b><?php echo lang_get( 'query_act' ); ?></b></div></td>
-
 
 <?php
 $sql = "select query_id,query_name,query_desc,query_type from {plugin_Query_definitions} where query_type='Q' order by query_name ";
@@ -63,7 +60,6 @@ while ($row = db_fetch_array($result)) {
 	<?PHP
 }
 ?>
-
 </table>
 </div>
 </div>
@@ -72,4 +68,4 @@ while ($row = db_fetch_array($result)) {
 </div>
 </div>
 <?php
-layout_page_end(  );
+layout_page_end();

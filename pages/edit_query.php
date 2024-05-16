@@ -28,7 +28,6 @@ $type = $row['query_type'];
 <form name="editquery" method="post" action="plugin.php?page=Query/edit_query2.php">
 <input type="hidden" name="update_id" value="<?php echo $update_id;  ?>">
 <strong><?php echo lang_get( 'query_update_comments' ) ?>: </strong>
-
 <tr>
 <td><div ><?php echo lang_get( 'query_title' ); ?></div></td>
 <td >

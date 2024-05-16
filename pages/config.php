@@ -8,7 +8,6 @@ $link1	= plugin_page('config');
 $link2	= plugin_page('manage_schedule');
 $link3	= plugin_page('manage_query');
 ?>
-
 <div class="col-md-12 col-xs-12">
 <div class="space-10"></div>
 <div class="form-container" > 
@@ -96,7 +95,6 @@ $link3	= plugin_page('manage_query');
 <input type="text" name="log_loc" size="50" maxlength="75" value="<?php echo plugin_config_get( 'log_loc' )?>" >
 </td>
 </tr>
-
 
 <tr >
 <td class="category" width="60%">

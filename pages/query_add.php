@@ -1,5 +1,4 @@
 <?PHP
-//require_once( 'core.php' );
 $query	= $_REQUEST['query_name'];
 $type	= $_REQUEST['query_type'];
 $desc	= $_REQUEST['query_desc'];

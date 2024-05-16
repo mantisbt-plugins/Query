@@ -1,10 +1,4 @@
 <?php
-require_once( '../../../core.php' );
-#
-# Includes for PHP-Office, Excel or Word
-# Need to be taken care of in the scripts itself 
-# 
-
 #logfile
 $logfilename = plugin_config_get( 'log_loc');
 $logfilename .= date('Ymd');

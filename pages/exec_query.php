@@ -4,12 +4,8 @@ error_reporting(-1); //turn on errorreporting
 # which query will we execute ?
 $query_id	= $_REQUEST['id'];
 
-# which query will we execute ?
-$filter		= @$_REQUEST['project_id'];
-
 # fetch query definition
 $query="select * from {plugin_Query_definitions} where query_id=$query_id" ;
-
 $result = db_query($query);
 $row = db_fetch_array( $result );
 
@@ -18,11 +14,11 @@ $action = $row['query_type'] ;
 
 # do we have a vailid query\
 if ( $action == 'Q' ) {
-	if ( trim( $row['query_sql'] ) ) == '' ) {
+	if ( !trim( $row['query_sql'] ) <> '' ) {
 		trigger_error( ERROR_QUERY_NOT_VALID, ERROR );
 	}
 } else {
-	if ( trim( $row['query_script'] ) ) == '' ) {
+	if ( !trim( $row['query_script'] ) <> '' ) {
 		trigger_error( ERROR_QUERY_NOT_VALID, ERROR );
 	}
 }
@@ -36,45 +32,7 @@ $separator = config_get( 'plugin_Query_separator','Query'  );
 switch($action){
 	case "Q":
 		# 'Q' means execute query, copy results into $content
-		if ( (!empty( $filter) ) and ( ON == plugin_config_get( 'build_sql' ) ) ) { 
-			$sql = 'select ';
-			$sql .= $row['query_fields'];
-			$sql .= ' from ';
-			$sql .= $row['query_tables'] ;
-			$where ='';
-			if (!empty($row['query_joins'])){
-				$where .= ' where ';
-				$where .= $row['query_joins'];
-			}	
-			if (!empty($row['query_filter'])){
-				if (empty($where)){
-					$where .= ' where ';
-				} else {
-					$where .= ' and ';
-				}
-				$where .= html_entity_decode($row['query_filter']);
-			}	
-			if (!empty($filter)){
-				if (empty($where)){
-					$where .= ' where {bug}.project_id=';
-				} else {
-					$where .= ' and {bug}.project_id=';
-				}
-				$where .= $filter ;
-			}	
-			$sql .= $where;
-			if (!empty($row['query_group'])){
-				$sql .= ' group by ';
-				$sql .= $row['query_group'];
-			}
-			if (!empty($row['query_order'])){
-				$sql .= ' order by ';
-				$sql .= $row['query_order'];
-			}
-			$query2		= $sql;
-		} else {
-			$query2		= html_entity_decode( $row['query_sql']);
-		}
+		$query2		= html_entity_decode( $row['query_sql']);
 		$result2	= db_query($query2);
 
 		# fieldnames

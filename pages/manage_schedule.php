@@ -27,7 +27,6 @@ $link3	= plugin_page('manage_query');
 <td class="form-title" colspan="6" >
 <?php print_link_button( $link1, lang_get( 'plugin_query_config' ) );?>
 &nbsp;
-<?php // print_link_button( $link2, lang_get( 'manage_schedule' ) );?>
 <?php print_link_button( $link3, lang_get( 'plugin_query_manage' ) );?>
 </td>
 </tr>
@@ -55,7 +54,7 @@ while ($row = db_fetch_array($result)) {
 	<td><div align="center"><?php echo $row["frequency"]; ?></div></td>
 	<td class="center" colspan="3"><div>
 	
-		<?php
+	<?php
 	$link6 = "plugin.php?page=Query/edit_schedule.php&update_id=";
 	$link6 .= $row["schedule_id"]  ;
 	$link7 = "plugin.php?page=Query/schedule_delete.php&delete_id=";
@@ -90,12 +89,7 @@ while ($row1 = db_fetch_array($result1)) {
 </select> 
 </td>
 <td class="center">
-<?php if ( ON == plugin_config_get( 'build_sql' ) ) { ?>
-	<textarea name="schedule_filter" rows="3" cols="30"></textarea>
-<?php
-} else {
-	echo lang_get( 'no_schedule_filter' );
- }	 ?>
+<textarea name="schedule_filter" rows="3" cols="30"></textarea>
 </td>
 <td class="center">
 <textarea name="schedule_target" rows="3" cols="30"></textarea>
