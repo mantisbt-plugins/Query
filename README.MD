@@ -1,6 +1,6 @@
 # Query plugin for MantisBT
 
-Version 2.19
+Version 2.22
 
 Copyright 2012 - 2024 by Cas Nuy www.NUY.info
 
@@ -128,3 +128,6 @@ Version 2.19	16-05-2024<br>
 &nbsp;&nbsp;&nbsp;&nbsp;		Added additional filter (again) for scheduled tasks<br>
 &nbsp;&nbsp;&nbsp;&nbsp;		Reviewed & cleaned code<br>
 &nbsp;&nbsp;&nbsp;&nbsp;		Ensured schedule name stays unique<br>
+Version 2.22	21-06-2024<br>
+&nbsp;&nbsp;&nbsp;&nbsp;		Fixed 2 typos in the scripts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;		Adjusted soime statements cause of new php requirements<br>
